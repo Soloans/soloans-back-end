@@ -1,0 +1,42 @@
+{
+  "homepage": "http://sinhvienit17.github.io/cms-keystonejs",
+  "description": "A blank KeystoneJS starter project.",
+  "private": true,
+  "version": "5.0.8",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development PORT=3001 DISABLE_LOGGING=true keystone dev",
+    "dev:init": "cross-env NODE_ENV=development INIT_DATA=true DISABLE_LOGGING=true keystone dev",
+    "dev:docker": "cross-env NODE_ENV=development DISABLE_LOGGING=true DOCKER=false keystone dev",
+    "dev:init:docker": "cross-env NODE_ENV=development INIT_DATA=true DISABLE_LOGGING=true DOCKER=true keystone dev",
+    "build": "cross-env NODE_ENV=production keystone build --openssl-legacy-provider",
+    "start": "cross-env NODE_ENV=production DOCKER=false keystone start",
+    "start:init": "cross-env NODE_ENV=production DOCKER=true INIT_DATA=true keystone start",
+    "create-tables": "cross-env keystone create-tables",
+    "update": "cross-env keystone upgrade-relationships",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "@keystonejs/adapter-mongoose": "^11.2.2",
+    "@keystonejs/app-admin-ui": "^7.3.9",
+    "@keystonejs/app-graphql": "6.3.2",
+    "@keystonejs/auth-password": "^6.1.2",
+    "@keystonejs/fields": "^22.1.3",
+    "@keystonejs/fields-cloudinary-image": "^2.0.2",
+    "@keystonejs/fields-wysiwyg-tinymce": "^5.3.13",
+    "@keystonejs/file-adapters": "^7.0.8",
+    "@keystonejs/keystone": "^19.3.3",
+    "@keystonejs/server-side-graphql-client": "2.1.2",
+    "cors": "^2.8.5",
+    "cross-env": "7.0.3",
+    "express": "^4.17.2",
+    "gh-pages": "^3.2.3",
+    "googleapis": "^86.1.0",
+    "graphql": "^15.4.0",
+    "mongodb": "^4.2.2",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
+    "passport": "^0.5.0",
+    "express-session": "^1.17.2"
+  }
+}
